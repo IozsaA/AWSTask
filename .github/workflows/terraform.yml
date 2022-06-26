@@ -7,16 +7,10 @@ jobs:
     name: 'Terraform Apply'
     runs-on: ubuntu-latest
     steps:
-      - name: 'Checkout'
-        uses: actions/checkout@main
-      - name: 'Terraform Apply'
-        uses: hashicorp/terraform-github-actions@master
-        with:
-          tf_actions_version: 0.12.18
-          tf_actions_subcommand: "apply"
+      - run: terraform apply -auto-approve
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        var:
           bucket_prefix: ${{secrets.BUCKET_PREFIX}}
           access_key: ${{secrets.ACCESS_KEY}}
           secret_key: ${{secrets.SECRET_KEY}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        var:
