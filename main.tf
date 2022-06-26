@@ -80,24 +80,12 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
     domain_name = aws_s3_bucket.buck.bucket_regional_domain_name
     origin_id   = local.s3_origin_id
-
-    #   s3_origin_config {
-    #     origin_access_identity = "origin-access-identity/cloudfront/ABCDEFG1234567"
-    #   }
   }
 
   enabled             = true
   is_ipv6_enabled     = true
   comment             = "siuuuuu"
   default_root_object = "index.html"
-
-  #   logging_config {
-  #     include_cookies = true
-  #     bucket          = "mylogs.s3.amazonaws.com"
-  #     prefix          = "myprefix"
-  #   }
-
-  #aliases = []
 
   default_cache_behavior {
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
@@ -118,7 +106,6 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     max_ttl                = 86400
   }
 
-  # Cache behavior with precedence 0
   ordered_cache_behavior {
     path_pattern     = "/content/immutable/*"
     allowed_methods  = ["GET", "HEAD", "OPTIONS"]
@@ -141,7 +128,6 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     viewer_protocol_policy = "redirect-to-https"
   }
 
-  # Cache behavior with precedence 1
   ordered_cache_behavior {
     path_pattern     = "/content/*"
     allowed_methods  = ["GET", "HEAD", "OPTIONS"]
@@ -180,11 +166,6 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   }
 }
 
-resource "aws_cloudwatch_log_group" "yada" {
-  name = "Yada"
-
-  tags = {
-    Environment = "production"
-    Application = "serviceA"
-  }
+resource "aws_cloudwatch_log_group" "watch" {
+  name = "logs-doctari"
 }
