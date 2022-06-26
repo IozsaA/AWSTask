@@ -9,7 +9,7 @@ terraform {
   }
 
   cloud {
-    organization = "Doctari"
+    organization = "task-doctari"
 
     workspaces {
       name = "AWSTask"
