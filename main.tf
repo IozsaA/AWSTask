@@ -180,14 +180,11 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   }
 }
 
-#resource "aws_cloudwatch_log_group" "example" {
-#  name = "Example"
-#}
-#
-#resource "aws_cloudtrail" "example" {
-#  # ... other configuration ...
-#  name = "cloudWatch"
-#  s3_bucket_name = aws_s3_bucket.buck.id
-#
-#  cloud_watch_logs_group_arn =  "arn:aws:s3:::${aws_s3_bucket.buck.id}/*" # CloudTrail requires the Log Stream wildcard
-#}
+resource "aws_cloudwatch_log_group" "yada" {
+  name = "Yada"
+
+  tags = {
+    Environment = "production"
+    Application = "serviceA"
+  }
+}
