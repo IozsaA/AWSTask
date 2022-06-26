@@ -3,15 +3,15 @@ terraform {
     aws = {
       source = "hashicorp/aws"
     }
-    random {
+    random = {
       source = "hashicorp/random"
     }
   }
 }
 
 provider "aws" {
-  version    = "~> 2.0"
-  region     = var.region
+  version = "~> 2.0"
+  region  = var.region
 }
 
 resource "aws_s3_bucket" "buck" {
