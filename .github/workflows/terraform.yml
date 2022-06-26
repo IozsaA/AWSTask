@@ -13,4 +13,3 @@ jobs:
           access_key: ${{secrets.ACCESS_KEY}}
           secret_key: ${{secrets.SECRET_KEY}}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        var:
