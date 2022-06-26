@@ -9,12 +9,12 @@ variable "region" {
   description = "Name of the s3 bucket to be created."
 }
 
-variable "acces_key" {
+variable "ACCESS_KEY" {
   type        = string
   description = "Id of the accesss key"
 }
 
-variable "secret_key" {
+variable "SECRET_KEY" {
   type        = string
   description = "Id of the secret key"
 }
