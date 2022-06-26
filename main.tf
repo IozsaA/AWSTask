@@ -7,6 +7,14 @@ terraform {
       source = "hashicorp/random"
     }
   }
+
+  cloud {
+    organization = "Doctari"
+
+    workspaces {
+      name = "AWSTask"
+    }
+  }
 }
 
 provider "aws" {
