@@ -14,5 +14,9 @@ jobs:
         with:
           tf_actions_version: 0.12.18
           tf_actions_subcommand: "apply"
+          variables: |
+            bucket_prefix: "${{secrets.BUCKET_PREFIX}}"
+            access_key: "${{secrets.ACCESS_KEY}}"
+            secret_key: "${{secrets.SECRET_KEY}}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
