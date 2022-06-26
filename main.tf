@@ -12,7 +12,7 @@ terraform {
     organization = "task-doctari"
 
     workspaces {
-      name = "AWSTask"
+      name = "aws-deploy"
     }
   }
 }
