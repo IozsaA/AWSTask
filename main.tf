@@ -63,7 +63,7 @@ resource "aws_s3_bucket_policy" "buck" {
                 "s3:GetObject"
             ],
             "Resource": [
-                "arn:aws:s3:::${aws_s3_bucket.buck.id}/*"
+                "arn:aws:s3:::${aws_s3_bucket.buck.id}/public/*"
             ]
         }
     ]
